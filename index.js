@@ -18,6 +18,7 @@ app.post('/send-message', (req, res) => {
     });
 });
 
+
 app.get('/getqr', (req, res) => {
   qrcode.toDataURL(client.qrCode, (err, url) => {
     if (err) {
@@ -38,6 +39,6 @@ client.on('ready', () => {
 
 client.initialize();
 
-const listener = app.listen(process.env.PORT, () => {
-  console.log('Server berjalan di http://localhost:' + listener.address().port);
+app.listen(3004, () => {
+  console.log('Server berjalan di http://localhost:3004');
 });
