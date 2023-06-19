@@ -1,7 +1,0 @@
-{
-    "rewrites": [
-      { "source": "/send-message", "destination": "/api/send-message" },
-      { "source": "/getqr", "destination": "/api/getqr" }
-    ]
-  }
-  
