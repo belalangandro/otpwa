@@ -6,10 +6,10 @@ const app = express();
 const client = new Client();
 app.use(express.json());
 
-app.post('/send-message', (req, res) => {
+app.post('/api/send-message', (req, res) => {
   const { phoneNumber, message } = req.body;
 
-  client.sendMessage(phoneNumber+'@c.us', message)
+  client.sendMessage(`${phoneNumber}@c.us`, message)
     .then(() => {
       res.status(200).json({ success: true, message: 'Pesan berhasil dikirim' });
     })
@@ -18,8 +18,7 @@ app.post('/send-message', (req, res) => {
     });
 });
 
-
-app.get('/getqr', (req, res) => {
+app.get('/api/getqr', (req, res) => {
   qrcode.toDataURL(client.qrCode, (err, url) => {
     if (err) {
       res.status(500).json({ success: false, message: 'Gagal menghasilkan QR code' });
@@ -39,6 +38,4 @@ client.on('ready', () => {
 
 client.initialize();
 
-app.listen(3000, () => {
-  console.log('Server berjalan di http://localhost:3000');
-});
+module.exports = app;
