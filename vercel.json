@@ -1,13 +1,7 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "index.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    { "src": "/api/send-message", "dest": "/api/send-message" },
-    { "src": "/api/getqr", "dest": "/api/getqr" }
-  ]
-}
+    "rewrites": [
+      { "source": "/send-message", "destination": "/api/send-message" },
+      { "source": "/getqr", "destination": "/api/getqr" }
+    ]
+  }
+  
