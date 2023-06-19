@@ -19,7 +19,7 @@ app.post('/send-message', (req, res) => {
 });
 
 
-app.get('/', (req, res) => {
+app.get('/getqr', (req, res) => {
   qrcode.toDataURL(client.qrCode, (err, url) => {
     if (err) {
       res.status(500).json({ success: false, message: 'Gagal menghasilkan QR code' });
